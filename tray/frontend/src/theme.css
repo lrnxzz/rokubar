@@ -1,0 +1,85 @@
+/* Shared pieces sit in ui and pages in features, so a page always overrides a piece whatever order the files load in. */
+@layer base, ui, features;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --accent-rgb: 168 108 232;
+    --accent: rgb(var(--accent-rgb));
+
+    --ink: rgb(255 255 255 / 0.86);
+    --ink-strong: rgb(255 255 255 / 0.95);
+    --ink-soft: rgb(255 255 255 / 0.7);
+    --ink-muted: rgb(255 255 255 / 0.49);
+
+    --fill: rgb(255 255 255 / 0.065);
+    --fill-hover: rgb(255 255 255 / 0.095);
+    --fill-press: rgb(255 255 255 / 0.13);
+    --card: rgb(255 255 255 / 0.068);
+    --card-line: rgb(255 255 255 / 0.085);
+
+    --on: rgb(52 199 89);
+    --waiting: rgb(255 159 10);
+    --danger: rgb(255 92 92);
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: linear-gradient(135deg, rgb(17 18 20 / 0.94), rgb(11 11 11 / 0.96));
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 12.5px;
+    line-height: 1.35;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  button,
+  input {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      /* biome-ignore lint/complexity/noImportantStyles: reduced motion has to win over every component's own timing. */
+      animation-duration: 1ms !important;
+      /* biome-ignore lint/complexity/noImportantStyles: reduced motion has to win over every component's own timing. */
+      transition-duration: 1ms !important;
+    }
+
+    /* A spinning icon is the only sign that work goes on, so it keeps turning at its own pace. */
+    [data-icon] {
+      /* biome-ignore lint/complexity/noImportantStyles: it has to win over the rule above. */
+      animation-duration: 1s !important;
+    }
+  }
+}
