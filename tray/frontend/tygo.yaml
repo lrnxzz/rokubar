@@ -1,0 +1,12 @@
+packages:
+  - path: github.com/lrnxzz/rokubar/server/api
+    output_path: src/api/types.gen.ts
+    indent: "  "
+  - path: github.com/lrnxzz/rokubar/server/api/http
+    output_path: src/api/requests.gen.ts
+    indent: "  "
+    type_mappings:
+      api.Television: Television
+      api.App: App
+    frontmatter: |
+      import type { App, Television } from "./types.gen";
