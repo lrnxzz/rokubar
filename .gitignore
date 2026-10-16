@@ -1,0 +1,14 @@
+coverage.out
+coverage.html
+bin/
+dist/
+
+# The executable's icon, generated from tray/icons/icon.ico when it's built.
+*.syso
+
+# A local workspace of the three modules, which the scripts create when there is none.
+go.work
+go.work.sum
+
+# The Roku TV the device tests talk to.
+.env
