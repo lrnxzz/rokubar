@@ -1,0 +1,25 @@
+@layer features {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+
+  .clear {
+    width: 20px;
+    height: 20px;
+  }
+
+  .skeleton {
+    height: 116px;
+    border-radius: 13px;
+    background: rgb(255 255 255 / 0.045);
+    animation: pulse 1.6s var(--ease) infinite;
+  }
+
+  @keyframes pulse {
+    50% {
+      opacity: 0.5;
+    }
+  }
+}

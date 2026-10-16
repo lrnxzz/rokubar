@@ -1,0 +1,17 @@
+@layer ui {
+  .mark {
+    display: block;
+    flex: none;
+    object-fit: cover;
+    background: rgb(255 255 255 / 0.08);
+  }
+
+  .fallback {
+    display: grid;
+    place-items: center;
+    flex: none;
+    background: rgb(255 255 255 / 0.08);
+    color: var(--ink-muted);
+    font-weight: 700;
+  }
+}
