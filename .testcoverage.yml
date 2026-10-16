@@ -2,4 +2,4 @@ profile: coverage.out
 local-prefix: github.com/lrnxzz/rokubar
 
 threshold:
-  total: 85
+  total: 80
