@@ -1,0 +1,35 @@
+@layer features {
+  .shortcuts {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 7px 10px;
+    margin: 0;
+  }
+
+  .shortcut {
+    display: contents;
+  }
+
+  .shortcuts dt {
+    color: var(--ink-soft);
+  }
+
+  .shortcuts dd {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .shortcuts kbd {
+    min-width: 20px;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: var(--fill);
+    box-shadow: inset 0 0 0 0.7px rgb(255 255 255 / 0.1);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 10.5px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
