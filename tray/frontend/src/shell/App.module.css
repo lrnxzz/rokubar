@@ -1,0 +1,21 @@
+@layer features {
+  .panel {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    height: 100%;
+    padding: 0 13px;
+  }
+
+  .scroll {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 14px;
+    margin: 0 -13px;
+    padding-left: 13px;
+    padding-right: 13px;
+    scrollbar-width: none;
+  }
+}

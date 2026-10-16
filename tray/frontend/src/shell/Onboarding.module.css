@@ -1,0 +1,40 @@
+@layer features {
+  .onboarding {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+  }
+
+  .title {
+    max-width: 220px;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .intro {
+    display: grid;
+    gap: 4px;
+    padding: 0 2px;
+  }
+
+  .intro h1 {
+    margin: 0;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 11px;
+  }
+}

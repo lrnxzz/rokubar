@@ -1,0 +1,29 @@
+@layer features {
+  .toast {
+    position: fixed;
+    left: 13px;
+    right: 13px;
+    bottom: 12px;
+    z-index: 30;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgb(38 39 42 / 0.98);
+    box-shadow:
+      0 0 0 0.7px rgb(255 255 255 / 0.1),
+      0 12px 30px -12px rgb(0 0 0 / 0.8);
+    font-size: 11px;
+  }
+
+  .toast svg {
+    flex: none;
+    margin-top: 1px;
+    color: var(--accent);
+  }
+
+  .toast[data-tone="error"] svg {
+    color: var(--waiting);
+  }
+}

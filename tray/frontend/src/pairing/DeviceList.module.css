@@ -1,0 +1,10 @@
+@layer features {
+  .list {
+    display: grid;
+    gap: 4px;
+  }
+
+  .again {
+    margin-top: 6px;
+  }
+}

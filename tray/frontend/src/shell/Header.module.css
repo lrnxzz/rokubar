@@ -1,0 +1,97 @@
+@layer features {
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 16px 0;
+  }
+
+  .text {
+    display: grid;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: var(--ink-strong);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .detail {
+    color: var(--ink-muted);
+    font-size: 10.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .power {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.06);
+    color: var(--ink-muted);
+    transition:
+      background 160ms var(--ease),
+      color 160ms var(--ease);
+  }
+
+  .power[data-on="true"] {
+    color: var(--ink-strong);
+  }
+
+  .power:hover {
+    background: var(--fill-hover);
+  }
+
+  .power:disabled {
+    cursor: progress;
+  }
+
+  .menu {
+    position: absolute;
+    top: 52px;
+    right: 50px;
+    z-index: 10;
+    display: grid;
+    min-width: 168px;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgb(36 37 40 / 0.98);
+    box-shadow:
+      0 0 0 0.7px rgb(255 255 255 / 0.12),
+      0 14px 34px -10px rgb(0 0 0 / 0.8);
+  }
+
+  .menu button {
+    padding: 6px 10px;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    text-align: left;
+  }
+
+  .menu button:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .menu hr {
+    height: 0.7px;
+    margin: 4px 6px;
+    border: 0;
+    background: rgb(255 255 255 / 0.12);
+  }
+}
