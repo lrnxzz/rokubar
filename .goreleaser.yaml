@@ -1,0 +1,65 @@
+version: 2
+
+project_name: rokubar
+
+# roku and live are released on their own tags, which the app's changelog skips.
+git:
+  ignore_tags:
+    - "roku/*"
+    - "live/*"
+
+before:
+  hooks:
+    - npm --prefix tray/frontend ci
+    - npm --prefix tray/frontend run build
+    - go run github.com/tc-hib/go-winres@v0.3.3 simply --icon tray/icons/icon.ico --arch amd64 --manifest none
+
+builds:
+  - binary: rokubar
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - windows
+    goarch:
+      - amd64
+    flags:
+      - -tags=production
+    ldflags:
+      - -H windowsgui -s -w
+
+# The bare executable downloads and runs as it is, and the zip carries it with the licenses.
+archives:
+  - id: exe
+    formats:
+      - binary
+    name_template: "{{ .ProjectName }}_{{ .Version }}_windows_amd64"
+  - id: zip
+    formats:
+      - zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_windows_amd64"
+    files:
+      - LICENSE
+      - THIRD_PARTY_NOTICES.md
+
+changelog:
+  use: github
+  sort: asc
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\(.+\))??!?:.+$'
+      order: 0
+    - title: Fixes
+      regexp: '^.*?fix(\(.+\))??!?:.+$'
+      order: 1
+    - title: Others
+      order: 999
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+release:
+  github:
+    owner: lrnxzz
+    name: rokubar
