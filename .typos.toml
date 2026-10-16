@@ -1,0 +1,6 @@
+[default.extend-words]
+# three.js names the property of its standard material metalness.
+metalness = "metalness"
+# Portuguese, as Roku OS and the App Store write it on a Brazilian TV.
+inicial = "inicial"
+programas = "programas"
