@@ -1,0 +1,377 @@
+@layer features {
+  .stage {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    padding: 6px 0 4px;
+  }
+
+  .stage::before {
+    content: "";
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    width: 230px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgb(var(--accent-rgb) / 0.16);
+    filter: blur(46px);
+    translate: -50% 0;
+    pointer-events: none;
+  }
+
+  .remote {
+    position: relative;
+    width: 323px;
+    height: 868px;
+    zoom: 0.5;
+  }
+
+  /* Icons undo the remote's zoom so they render at the pixel size their drawing was made for. */
+  .remote [data-icon] {
+    zoom: 2;
+  }
+
+  .body {
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: 311px;
+    height: 812px;
+    border-radius: 62px 62px 74px 74px;
+    /* Matte plastic: a faint grain over the side-lit body. */
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+      radial-gradient(120% 40% at 30% 0%, rgb(255 255 255 / 0.08), transparent 60%),
+      linear-gradient(90deg, #0b0b0c 0%, #212124 8%, #1c1c1f 50%, #151517 92%, #09090a 100%);
+    box-shadow:
+      inset 0 2px 1px rgb(255 255 255 / 0.12),
+      inset 0 0 0 1px rgb(255 255 255 / 0.03),
+      inset 0 -6px 14px rgb(0 0 0 / 0.6),
+      0 0 0 1.5px #050506,
+      0 40px 70px -24px rgb(0 0 0 / 0.95);
+  }
+
+  .tag {
+    position: absolute;
+    left: 104px;
+    top: 790px;
+    display: grid;
+    place-items: end center;
+    width: 115px;
+    height: 76px;
+    padding-bottom: 12px;
+    border-radius: 0 0 14px 14px;
+    background: linear-gradient(#5c22c4, #7232e3);
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.25);
+    color: white;
+    font-family: var(--font-display);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .key {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    /* A domed key sitting in its hole in the body. */
+    background: radial-gradient(140% 110% at 50% 12%, #37373c 0%, #26262a 50%, #1c1c1f 100%);
+    color: #e4e4e7;
+    box-shadow:
+      0 0 0 2.5px #08080a,
+      inset 0 1.5px 0 rgb(255 255 255 / 0.14),
+      inset 0 -2px 3px rgb(0 0 0 / 0.4),
+      0 3px 0 2.5px #050506,
+      0 7px 12px rgb(0 0 0 / 0.5);
+    transition:
+      translate 90ms var(--ease),
+      box-shadow 90ms var(--ease),
+      filter 90ms var(--ease);
+    touch-action: none;
+  }
+
+  .key:hover {
+    filter: brightness(1.15);
+  }
+
+  .key:active,
+  .key[data-pressed="true"] {
+    translate: 0 2px;
+    box-shadow:
+      0 0 0 2.5px #08080a,
+      inset 0 1px 0 rgb(255 255 255 / 0.08),
+      inset 0 2px 4px rgb(0 0 0 / 0.35),
+      0 1px 0 2.5px #050506,
+      0 2px 4px rgb(0 0 0 / 0.5);
+  }
+
+  .key:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .asterisk {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .pair {
+    display: flex;
+  }
+
+  .power {
+    left: 133px;
+    top: 38px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, #2c2c2f, #1a1a1c);
+    color: #ec2a33;
+  }
+
+  .power:disabled {
+    color: rgb(236 42 51 / 0.45);
+    cursor: progress;
+  }
+
+  .micHole {
+    position: absolute;
+    left: 158px;
+    top: 112px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #050505;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.08);
+  }
+
+  .back,
+  .home {
+    top: 134px;
+    width: 104px;
+    height: 52px;
+    border-radius: 22px;
+  }
+
+  .back {
+    left: 48px;
+  }
+
+  .home {
+    left: 171px;
+  }
+
+  .well {
+    position: absolute;
+    left: 44px;
+    top: 206px;
+    width: 235px;
+    height: 235px;
+    border-radius: 48px;
+    background: #121214;
+    box-shadow:
+      inset 0 4px 10px rgb(0 0 0 / 0.85),
+      inset 0 -1px 0 rgb(255 255 255 / 0.05);
+  }
+
+  .cross {
+    position: absolute;
+    left: 49.5px;
+    top: 211.5px;
+    width: 224px;
+    height: 224px;
+    filter: drop-shadow(0 3px 0 #2c0f66) drop-shadow(0 6px 10px rgb(0 0 0 / 0.6));
+    pointer-events: none;
+  }
+
+  .arm {
+    background: transparent;
+    box-shadow: none;
+    color: rgb(255 255 255 / 0.92);
+  }
+
+  .arm:hover {
+    filter: none;
+    background: rgb(255 255 255 / 0.06);
+  }
+
+  .arm:active,
+  .arm[data-pressed="true"] {
+    translate: 0 0;
+    background: rgb(0 0 0 / 0.22);
+    box-shadow: none;
+  }
+
+  .up {
+    left: 109.5px;
+    top: 219.5px;
+    width: 104px;
+    height: 66px;
+    border-radius: 22px 22px 6px 6px;
+  }
+
+  .down {
+    left: 109.5px;
+    top: 361.5px;
+    width: 104px;
+    height: 66px;
+    border-radius: 6px 6px 22px 22px;
+  }
+
+  .left {
+    left: 57.5px;
+    top: 271.5px;
+    width: 66px;
+    height: 104px;
+    border-radius: 22px 6px 6px 22px;
+  }
+
+  .right {
+    left: 199.5px;
+    top: 271.5px;
+    width: 66px;
+    height: 104px;
+    border-radius: 6px 22px 22px 6px;
+  }
+
+  .ok {
+    left: 124.5px;
+    top: 286.5px;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, #6c30da, #5520bd);
+    color: white;
+    font-family: var(--font-display);
+    font-size: 23px;
+    font-weight: 700;
+    box-shadow:
+      0 0 0 4px #4a1aa6,
+      inset 0 1.5px 0 rgb(255 255 255 / 0.18),
+      0 4px 8px rgb(0 0 0 / 0.45);
+  }
+
+  .ok:active,
+  .ok[data-pressed="true"] {
+    box-shadow:
+      0 0 0 4px #4a1aa6,
+      inset 0 2px 5px rgb(0 0 0 / 0.35);
+  }
+
+  .replay,
+  .search,
+  .star {
+    top: 466px;
+    height: 46px;
+    border-radius: 20px;
+  }
+
+  .replay {
+    left: 48px;
+    width: 74px;
+  }
+
+  .search {
+    left: 133px;
+    width: 58px;
+  }
+
+  .star {
+    left: 201px;
+    width: 74px;
+  }
+
+  .rewind,
+  .play,
+  .forward {
+    top: 530px;
+    height: 66px;
+    border-radius: 22px;
+  }
+
+  .rewind {
+    left: 48px;
+    width: 52px;
+  }
+
+  .play {
+    left: 111px;
+    width: 101px;
+  }
+
+  .forward {
+    left: 223px;
+    width: 52px;
+  }
+
+  .shortcut {
+    width: 104px;
+    height: 54px;
+    border-radius: 22px;
+    background: linear-gradient(#141416, #0a0a0b);
+    box-shadow:
+      inset 0 1.5px 0 rgb(255 255 255 / 0.12),
+      inset 0 -6px 12px rgb(0 0 0 / 0.5),
+      0 2.5px 0 #040405,
+      0 5px 10px rgb(0 0 0 / 0.55);
+  }
+
+  .shortcut0 {
+    left: 48px;
+    top: 630px;
+  }
+
+  .shortcut1 {
+    left: 171px;
+    top: 630px;
+  }
+
+  .shortcut2 {
+    left: 48px;
+    top: 702px;
+  }
+
+  .shortcut3 {
+    left: 171px;
+    top: 702px;
+  }
+
+  .volumeUp,
+  .volumeDown,
+  .mute {
+    left: 313px;
+    width: 12px;
+    background: linear-gradient(90deg, #1c1c1e, #2a2a2d);
+    box-shadow:
+      inset -1px 0 0 rgb(255 255 255 / 0.08),
+      1px 0 2px rgb(0 0 0 / 0.6);
+  }
+
+  .volumeUp {
+    top: 214px;
+    height: 52px;
+    border-radius: 0 7px 2px 0;
+  }
+
+  .volumeDown {
+    top: 267px;
+    height: 52px;
+    border-radius: 0 2px 7px 0;
+  }
+
+  .mute {
+    top: 334px;
+    height: 34px;
+    border-radius: 0 7px 7px 0;
+  }
+
+  .volumeUp:active,
+  .volumeDown:active,
+  .mute:active {
+    translate: -2px 0;
+  }
+}
