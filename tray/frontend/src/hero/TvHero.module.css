@@ -1,0 +1,60 @@
+@layer features {
+  .hero {
+    position: relative;
+    height: 200px;
+    margin-top: 2px;
+  }
+
+  .glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 230px;
+    height: 110px;
+    border-radius: 50%;
+    background: rgb(var(--accent-rgb) / var(--glow, 0.28));
+    filter: blur(38px);
+    translate: -50% calc(-50% + 9px);
+    transition: background 500ms var(--ease);
+  }
+
+  .hero canvas {
+    /* biome-ignore lint/complexity/noImportantStyles: three.js sets the canvas position inline. */
+    position: absolute !important;
+    inset: 0;
+    touch-action: none;
+    cursor: grab;
+  }
+
+  .hero canvas:active {
+    cursor: grabbing;
+  }
+
+  .pad {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  .padSpace {
+    height: 30px;
+  }
+
+  .group {
+    display: flex;
+    gap: 4px;
+  }
+
+  .screen {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 9px;
+    translate: 0 -10px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 16px rgb(var(--accent-rgb) / 0.5));
+  }
+}
