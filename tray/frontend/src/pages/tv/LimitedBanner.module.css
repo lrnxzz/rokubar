@@ -1,0 +1,23 @@
+@layer features {
+  .banner {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgb(255 159 10 / 0.1);
+    box-shadow: inset 0 0 0 0.7px rgb(255 159 10 / 0.25);
+    color: var(--ink);
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .banner svg {
+    flex: none;
+    margin-top: 1px;
+    color: var(--waiting);
+  }
+
+  .banner b {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,32 @@
+@layer features {
+  .favorites {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px 6px;
+  }
+
+  .favorite {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    border: 0;
+    border-radius: 9px;
+    background: none;
+    color: rgb(255 255 255 / 0.7);
+    font-size: 9.5px;
+    font-weight: 500;
+    min-width: 0;
+  }
+
+  .favorite span {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .favorite:hover .mark {
+    filter: brightness(1.12);
+  }
+}

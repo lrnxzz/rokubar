@@ -1,0 +1,6 @@
+@layer features {
+  .inputs {
+    display: grid;
+    gap: 4px;
+  }
+}

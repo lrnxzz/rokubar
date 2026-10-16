@@ -1,0 +1,30 @@
+@layer features {
+  .progress {
+    display: grid;
+    gap: 6px;
+  }
+
+  .track {
+    position: relative;
+    height: 4px;
+    border-radius: 2px;
+    background: rgb(255 255 255 / 0.1);
+    overflow: hidden;
+  }
+
+  .fill {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--accent);
+    transform-origin: left;
+  }
+
+  .times {
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink-muted);
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+}
