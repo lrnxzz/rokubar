@@ -1,0 +1,86 @@
+@layer ui {
+  .panel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: var(--button-height, 30px);
+    padding: 0 10px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--fill);
+    color: rgb(255 255 255 / 0.79);
+    transition:
+      background 140ms var(--ease),
+      color 140ms var(--ease),
+      scale 140ms var(--ease);
+    touch-action: none;
+  }
+
+  .panel:hover {
+    background: var(--fill-hover);
+  }
+
+  .panel:active,
+  .panel[data-pressed="true"] {
+    background: var(--fill-press);
+    scale: 0.97;
+  }
+
+  .panel[aria-pressed="true"],
+  .panel[data-selected="true"] {
+    background: rgb(var(--accent-rgb) / 0.19);
+    color: var(--accent);
+  }
+
+  .panel:disabled {
+    opacity: 0.45;
+    cursor: default;
+    scale: 1;
+  }
+
+  .square {
+    width: 43px;
+    height: 42px;
+    padding: 0;
+  }
+
+  .small {
+    width: 28px;
+    min-height: 26px;
+    padding: 0;
+    border-radius: 7px;
+  }
+
+  .danger {
+    color: var(--danger);
+  }
+
+  .ghost {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--ink-muted);
+    transition:
+      color 160ms var(--ease),
+      background 160ms var(--ease);
+  }
+
+  .ghost:hover {
+    background: var(--fill);
+    color: var(--ink);
+  }
+
+  .row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 7px;
+    --button-height: 32px;
+  }
+}

@@ -1,0 +1,20 @@
+@layer ui {
+  .icon {
+    display: block;
+    flex: none;
+  }
+
+  .icon svg {
+    display: block;
+  }
+
+  .spinning {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+}

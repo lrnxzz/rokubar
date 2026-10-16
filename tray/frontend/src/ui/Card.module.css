@@ -1,0 +1,39 @@
+@layer ui {
+  .card {
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--card);
+    box-shadow: inset 0 0 0 0.7px var(--card-line);
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .head svg {
+    color: var(--ink-muted);
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink-muted);
+    font-size: 10.5px;
+    font-weight: 400;
+  }
+
+  .link:hover {
+    color: var(--ink);
+  }
+}
